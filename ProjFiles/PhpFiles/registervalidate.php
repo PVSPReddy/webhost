@@ -16,6 +16,9 @@ foreach ($_SERVER as $key => $value) {
 try
 {
 
+     echo '<pre>';
+    print_r("check 1");
+    echo '</pre>';
 
 $servername = "mysql3.gear.host";
 $username = "webhostdb";
@@ -26,8 +29,16 @@ $host = 3306;
 $uName="";$uPwd="";$uFName="";$uLName="";$uMobileNo="";$uEmailId="";$uProfile="";$uRPwd="";
 $log_Err ="";
 $shallAllow =false;
+    
+    echo '<pre>';
+    print_r("check 2");
+    echo '</pre>';
+    
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
+    echo '<pre>';
+    print_r("check 3");
+    echo '</pre>';
     if (empty($_POST["regUName"])) 
     {
         $log_Err = "username is required";
