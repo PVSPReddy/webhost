@@ -132,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         {
             $connn = new PDO("mysql:host=$servername;dbname=$dbName", $username, $password);
             $connn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO webhostdb.userinfo (uid, uname, password, first_name, last_name, mobile_no, email_id, profile_pic ) VALUES ( 'pvsivapr1', '123456', 'Venkata Sivaprasad Reddy', 'Pulagam', '9865231458', 'pvsivapr1@gmail.com', 'no pic' )";
+            $sql = "INSERT INTO webhostdb.userinfo (uname, password, first_name, last_name, mobile_no, email_id, profile_pic ) VALUES ( 'pvsivapr1', '123456', 'Venkata Sivaprasad Reddy', 'Pulagam', '9865231458', 'pvsivapr1@gmail.com', 'no pic' )";
             $connn->exec($sql);
             echo "Connected successfully";
         }
