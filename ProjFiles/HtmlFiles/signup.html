@@ -9,13 +9,13 @@
 	<body bgcolor=" #00e600">
        <center>
            <table>
-               <form method="post" action="..\PhpFiles\registervalidate.php" enctype="multipart/form-data" name="regData">
+               <form method="post"  action="..\PhpFiles\registervalidate.php" enctype="multipart/form-data" name="regData">
                    <tr>
                        <td>
                            *User Name
                        </td>
                        <td>
-                           <input type="text" name="regUName" />
+                           <input type="text" name="regUName" required/>
                        </td>
                    </tr>
                    <tr>
@@ -23,7 +23,7 @@
                            *First Name
                        </td>
                        <td>
-                           <input type="text" name="regFName"  />
+                           <input type="text" name="regFName" required />
                        </td>
                    </tr>
                    <tr>
@@ -31,7 +31,7 @@
                            *Last Name
                        </td>
                        <td>
-                           <input type="text" name="regLName"  />
+                           <input type="text" name="regLName" required />
                        </td>
                    </tr>
                    <tr>
@@ -39,7 +39,7 @@
                            *Mobile No
                        </td>
                        <td>
-                           <input type="text" name="regUMobile" />
+                           <input type="text" name="regUMobile" required />
                        </td>
                    </tr>
                    <tr>
@@ -47,7 +47,7 @@
                            *EmailId
                        </td>
                        <td>
-                           <input type="text" name="regUemail"  />
+                           <input type="text" name="regUemail" required />
                        </td>
                    </tr>
                    <tr>
@@ -55,7 +55,7 @@
                            *Password
                        </td>
                        <td>
-                           <input type="text" name="regUPwd"  />
+                           <input type="text" name="regUPwd" required />
                        </td>
                    </tr>
                    <tr>
@@ -63,7 +63,7 @@
                            *Re-Enter Password
                        </td>
                        <td>
-                           <input type="text" name="regURePwd"  />
+                           <input type="text" name="regURePwd" required />
                        </td>
                    </tr>
                    <tr>

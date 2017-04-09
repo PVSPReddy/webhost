@@ -10,15 +10,11 @@ ChromePhp::log($_SERVER);
 // using labels
 foreach ($_SERVER as $key => $value) {
     ChromePhp::log($key, $value);
-}*/
-
-
-try
-{
-
      echo '<pre>';
     print_r("check 1");
     echo '</pre>';
+    
+}*/
 
 $servername = "mysql3.gear.host";
 $username = "webhostdb";
@@ -29,16 +25,9 @@ $host = 3306;
 $uName="";$uPwd="";$uFName="";$uLName="";$uMobileNo="";$uEmailId="";$uProfile="";$uRPwd="";
 $log_Err ="";
 $shallAllow =false;
-    
-    echo '<pre>';
-    print_r("check 2");
-    echo '</pre>';
-    
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
-    echo '<pre>';
-    print_r("check 3");
-    echo '</pre>';
     if (empty($_POST["regUName"])) 
     {
         $log_Err = "username is required";
@@ -111,9 +100,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             }
         }
     }
-    echo '<pre>';
-    print_r($log_Err);
-    echo '</pre>';
 
     if (empty($_POST["fileUploading"])) 
     {
@@ -135,26 +121,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             $sql = "INSERT INTO webhostdb.userinfo (uid, uname, password, first_name, last_name, mobile_no, email_id, profile_pic ) VALUES ('1', 'pvsivapr', '123456', 'Venkata Sivaprasad Reddy', 'Pulagam', '9865231458', 'pvsivapr@gmail.com', 'no pic' )";
             $connn->exec($sql);
             echo "Connected successfully";
-            echo ('<script language="javascript">');
-            echo ('alert(Connected successfully>)');  //not showing an alert box.
-            echo ('</script>');
         }
         catch(PDOException $e)
         {
             echo "Connection failed: " . $e->getMessage();
-            echo ('<script language="javascript">');
+            /*echo ('<script language="javascript">');
             echo ('alert(<?php $e->getMessage();  ?>)');  //not showing an alert box.
             echo ('</script>');
+            */
         }
     }
-}
-}
-catch(PDOException $e)
-{
-    echo "Connection failed: " . $e->getMessage();
-    echo '<pre>';
-    print_r("this is an exception");
-    echo '</pre>';
 }
 
 ?>
