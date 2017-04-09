@@ -85,7 +85,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                                 $uEmailId=$_POST["regUemail"];
                                 $uRPwd=$_POST["regURePwd"];
                                 
-                                 echo("password :"+$uPwd+", \n" +"Re-Password :"+$uRPwd);
+                                echo('password :'+$uPwd);
+                                echo('Re-Password :'+$uRPwd);
                                 
                                 if($upwd == $uRPwd)
                                 {
