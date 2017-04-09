@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                      } 
                     else
                     {
-                        if (empty($_POST["logUPwd"]))
+                        if (empty($_POST["regUPwd"]))
                         {
                             $log_Err = "Password is required";
                             echo($log_Err);
