@@ -27,36 +27,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         {
             if (empty($_POST["regLName"])) 
             {
-                $nameErr = "lastname is required";
-                echo($nameErr);
+                $log_Err = "lastname is required";
+                echo($log_Err);
             } 
             else
             {
                 if (empty($_POST["regUMobile"])) 
                 {
-                    $log_passwordErr = "Mobile number is required";
-                    echo($log_passwordErr);
+                    $log_Err = "Mobile number is required";
+                    echo($log_Err);
                 } 
                 else 
                 {
                      if (empty($_POST["regUemail"]))
                      {
-                         $nameErr = "Email is required";
-                         echo($nameErr);
+                         $log_Err = "Email is required";
+                         echo($log_Err);
                      } 
                     else
                     {
                         if (empty($_POST["logUPwd"]))
                         {
-                            $log_passwordErr = "Password is required";
-                            echo($log_passwordErr);
+                            $log_Err = "Password is required";
+                            echo($log_Err);
                         } 
                         else
                         {
                             if (empty($_POST["regURePwd"]))
                             {
-                                $nameErr = "Passwords do not match";
-                                echo($nameErr);
+                                $log_Err = "Passwords do not match";
+                                echo($log_Err);
                             } 
                             else
                             {
@@ -73,8 +73,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                                 }
                                 else
                                 {
-                                    $nameErr = "Passwords do not match";
-                                    echo($nameErr);
+                                    $log_Err = "Passwords do not match";
+                                    echo($log_Err);
                                 }
                             }
                         }
