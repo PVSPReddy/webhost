@@ -84,6 +84,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                                 $uMobileNo=$_POST["regUMobile"];
                                 $uEmailId=$_POST["regUemail"];
                                 $uRPwd=$_POST["regURePwd"];
+                                
+                                 echo("password :"+$uPwd+", \n" +"Re-Password :"+$uRPwd);
+                                
                                 if($upwd == $uRPwd)
                                 {
                                     $shallAllow=true;
