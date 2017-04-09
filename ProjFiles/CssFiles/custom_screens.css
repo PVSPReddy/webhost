@@ -1,0 +1,32 @@
+@media screen and (device-width: 1440px) 
+ {
+     .pagebody
+     {
+         height : 900px;
+         width : 100%;
+         padding: 0;
+         margin: auto
+     }
+}
+
+@media screen and (device-width: 1024px) 
+ {
+     .pagebody
+     {
+         height : 768px;
+         width : 100%;
+         padding: 0;
+         margin: auto
+     }
+}
+
+@media screen and (device-width: 1366px) 
+ {
+     .pagebody
+     {
+         height : 768px;
+         width : 100%;
+         padding: 0;
+         margin: auto
+     }
+}

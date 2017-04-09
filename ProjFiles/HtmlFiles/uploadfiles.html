@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+		<title color="red">SignIn</title>
+       <script type="text/javascript" src="..\JavaScript\uploadfileservice.js"></script>  
+       <!--<link rel="icon" type="image/jpg" href="ProjFiles\Images\TitleBarIcon.jpg" sizes="16x16">
+        <link rel="stylesheet" href="ProjFiles\CssFiles\MyCustomStyles.css" type="text/css" media="screen" />-->
+	</head>
+	<body bgcolor=" #00e600">
+       <center>
+           <fieldset>
+               <legend>Logging In</legend>
+           <table>
+              <!--  <form method="post" action="..\PhpFiles\loginvalidate.php" enctype="multipart/form-data" name="logForm" onsubmit="return validateData()">-->
+               <form method="post" enctype="multipart/form-data" name="uploadForm" onsubmit="imageconvertor()" >
+                   <tr>
+                       <td>
+                           upload your media files:
+                       </td>
+                       <td>
+                           <input accept="audio/*,video/*,image/*" type="file" name="fileUploading" id="filetoupload" />
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <input type="submit" value="submit" />
+                       </td>
+                   </tr>
+               </form>
+           </table>
+               </fieldset>
+            <!--<p>
+                <marquee>
+                     get ready for signin
+                </marquee>
+            </p>-->
+        </center>
+	</body>
+</html>

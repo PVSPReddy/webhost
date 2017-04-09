@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+		<title color="red">SignUp</title>
+       <!-- <link rel="icon" type="image/jpg" href="ProjFiles\Images\TitleBarIcon.jpg" sizes="16x16">
+        <link rel="stylesheet" href="ProjFiles\CssFiles\MyCustomStyles.css" type="text/css" media="screen" />-->
+	</head>
+	<body bgcolor=" #00e600">
+       <center>
+           <table>
+               <form action="..\PhpFiles\registervalidate.php" enctype="multipart/form-data" name="regData">
+                   <tr>
+                       <td>
+                           *User Name
+                       </td>
+                       <td>
+                           <input type="text" name="regUName" required/>
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           *First Name
+                       </td>
+                       <td>
+                           <input type="text" name="regFName" required />
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           *Last Name
+                       </td>
+                       <td>
+                           <input type="text" name="regLName" required />
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           *Mobile No
+                       </td>
+                       <td>
+                           <input type="text" name="regUMobile" required />
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           *EmailId
+                       </td>
+                       <td>
+                           <input type="text" name="regUemail" required />
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           *Password
+                       </td>
+                       <td>
+                           <input type="text" name="regUPwd" required />
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           *Re-Enter Password
+                       </td>
+                       <td>
+                           <input type="text" name="regURePwd" required />
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           upload your photo:
+                       </td>
+                       <td>
+                           <input accept="image/*" type="file" name="fileUploading" id="filetoupload" />
+                           <!--<input accept="audio/*,video/*,image/*" type="file" name="fileUploading" id="filetoupload" />-->
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <input type="submit" name="registration"/>
+                       </td>
+                   </tr>
+               </form>
+           </table>
+            <!--<p>
+                <marquee>
+                     get ready for signup
+                </marquee>
+            </p>-->
+        </center>
+	</body>
+</html>
