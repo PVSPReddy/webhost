@@ -1,5 +1,21 @@
 <?php
 
+/*
+include 'ChromePhp.php';
+ChromePhp::log('This is just a log message');
+ChromePhp::warn("This is a warning message " ) ;
+ChromePhp::error("This is an error message" ) ;
+ChromePhp::log($_SERVER);
+ 
+// using labels
+foreach ($_SERVER as $key => $value) {
+    ChromePhp::log($key, $value);
+}*/
+
+echo '<pre>';
+print_r("workng well with this project");
+echo '</pre>';
+
 $servername = "mysql3.gear.host";
 $username = "webhostdb";
 $password = "siva_123456";
