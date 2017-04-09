@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                                 echo('password :'+$uPwd);
                                 echo('Re-Password :'+$uRPwd);
                                 
-                                if($upwd == $uRPwd)
+                                if($upwd === $uRPwd)
                                 {
                                     $shallAllow=true;
                                 }
