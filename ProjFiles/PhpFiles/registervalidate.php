@@ -84,13 +84,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                                 $uMobileNo=$_POST["regUMobile"];
                                 $uEmailId=$_POST["regUemail"];
                                 $uRPwd=$_POST["regURePwd"];
-                                if($upwd==$uRPwd)
+                                if($upwd == $uRPwd)
                                 {
                                     $shallAllow=true;
                                 }
                                 else
                                 {
-                                    $log_Err = "Passwords do not match";
+                                    $log_Err = "Passwords did not match";
                                     echo($log_Err);
                                 }
                             }
