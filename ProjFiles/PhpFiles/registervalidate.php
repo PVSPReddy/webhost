@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                             else
                             {
                                 $uName=$_POST["regUName"];
-                                $uPwd=$_POST["logUPwd"];
+                                $uPwd=$_POST["regUPwd"];
                                 $uFName=$_POST["regFName"];
                                 $uLName=$_POST["regLName"];
                                 $uMobileNo=$_POST["regUMobile"];
@@ -118,7 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         {
             $connn = new PDO("mysql:host=$servername;dbname=$dbName", $username, $password);
             $connn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO webhostdb.userinfo (uid, uname, password, first_name, last_name, mobile_no, email_id, profile_pic ) VALUES ('1', 'pvsivapr', '123456', 'Venkata Sivaprasad Reddy', 'Pulagam', '9865231458', 'pvsivapr@gmail.com', 'no pic' )";
+            $sql = "INSERT INTO webhostdb.userinfo (uid, uname, password, first_name, last_name, mobile_no, email_id, profile_pic ) VALUES ( 'pvsivapr1', '123456', 'Venkata Sivaprasad Reddy', 'Pulagam', '9865231458', 'pvsivapr1@gmail.com', 'no pic' )";
             $connn->exec($sql);
             echo "Connected successfully";
         }
