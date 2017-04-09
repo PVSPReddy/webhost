@@ -13,6 +13,10 @@ foreach ($_SERVER as $key => $value) {
 }*/
 
 
+try
+{
+
+
 $servername = "mysql3.gear.host";
 $username = "webhostdb";
 $password = "siva_123456";
@@ -132,6 +136,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             echo ('</script>');
         }
     }
+}
+}
+catch(PDOException $e)
+{
+    echo "Connection failed: " . $e->getMessage();
+    echo '<pre>';
+    print_r("this is an exception");
+    echo '</pre>';
 }
 
 ?>
