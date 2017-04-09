@@ -12,9 +12,6 @@ foreach ($_SERVER as $key => $value) {
     ChromePhp::log($key, $value);
 }*/
 
-echo '<pre>';
-print_r("workng well with this project");
-echo '</pre>';
 
 $servername = "mysql3.gear.host";
 $username = "webhostdb";
