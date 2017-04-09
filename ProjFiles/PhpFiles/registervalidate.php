@@ -100,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         }
     }
     echo '<pre>';
-    print_r("workng well with this project");
+    print_r($log_Err);
     echo '</pre>';
 
     if (empty($_POST["fileUploading"])) 
