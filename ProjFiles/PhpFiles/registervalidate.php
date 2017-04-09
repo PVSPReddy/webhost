@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                                 echo('password :'+$uPwd);
                                 echo('Re-Password :'+$uRPwd);
                                 
-                                if($upwd === $uRPwd)
+                                if($_POST["regUPwd"] == $_POST["regURePwd"])
                                 {
                                     $shallAllow=true;
                                 }
@@ -97,6 +97,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                                     $log_Err = "Passwords did not match";
                                     echo($log_Err);
                                 }
+                                
+                                /*if($upwd == $uRPwd)
+                                {
+                                    $shallAllow=true;
+                                }
+                                else
+                                {
+                                    $log_Err = "Passwords did not match";
+                                    echo($log_Err);
+                                }*/
                             }
                         }
                     }
