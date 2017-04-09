@@ -99,9 +99,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             }
         }
     }
-    echo ('<script language="javascript">');
-    echo ('alert(<?php $nameErr  ?>)');  //not showing an alert box.
-    echo ('</script>');
+    echo '<pre>';
+    print_r("workng well with this project");
+    echo '</pre>';
 
     if (empty($_POST["fileUploading"])) 
     {
