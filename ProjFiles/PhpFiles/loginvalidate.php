@@ -42,9 +42,12 @@ if($shallAllow == true)
         $sql = "SELECT * from webhostdb.userinfo WHERE uid=\$_POST[\"logUName\"]";
         
         //1
+        /*
         $connn->exec($sql);
         echo "Connected successfully";
         echo "step 2";
+        */
+        
         //2
          // prepare sql and bind parameters
         $res_data = $connn->prepare($sql);
