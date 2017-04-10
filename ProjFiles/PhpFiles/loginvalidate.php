@@ -16,14 +16,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     if (empty($_POST["logUName"])) 
     {
         $log_Err = "Name is required";
-        echo($log_Err;);
+        echo($log_Err);
     } 
     else
     {
         if (empty($_POST["logUPwd"]))
         {
             $log_Err = "Password is required";
-            echo($log_Err;);
+            echo($log_Err);
         }
         else
         {
@@ -77,7 +77,7 @@ if($shallAllow == true)
     }
     catch(PDOException $e)
     {
-        echo "Connection failed: " . $e->getMessage();
+        echo "Connection failed: " + $e->getMessage();
         /*echo ('<script language="javascript">');
         echo ('alert(<?php $e->getMessage();  ?>)');  //not showing an alert box.
         echo ('</script>');
