@@ -1,26 +1,83 @@
 <?php
-    // define variables and set to empty values
-$log_nameErr =""; $log_passwordErr ="";
+
+$servername = "mysql3.gear.host";
+$username = "webhostdb";
+$password = "siva_123456";
+$dbName = "webhostdb";
+$host = 3306;
+
+$shallAllow =false;
+
+// define variables and set to empty values
+$log_Err ="";
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
     if (empty($_POST["logUName"])) 
     {
-        $nameErr = "Name is required";
-        echo($nameErr);
+        $log_Err =""; = "Name is required";
+        echo($log_Err ="";);
     } 
     else
     {
-        //$name = test_input($_POST["name"]);
+        if (empty($_POST["logUPwd"]))
+        {
+            $log_Err =""; = "Password is required";
+            echo($log_Err ="";);
+        }
+        else
+        {
+            $shallAllow =true;
+        }
     }
-    
-    if (empty($_POST["logUPwd"])) 
+}
+
+if($shallAllow == true)
+{
+    try
     {
-        $log_passwordErr = "Password is required";
-        echo($log_passwordErr);
-    } 
-    else
+        $connn = new PDO("mysql:host=$servername;dbname=$dbName", $username, $password);
+        $connn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "SELECT * from webhostdb.userinfo WHERE uid=\$_POST[\"logUName\"]";
+        
+        //1
+        $connn->exec($sql);
+        echo "Connected successfully";
+        
+        //2
+         // prepare sql and bind parameters
+        $res_data = $connn->prepare($sql);
+        $res_data->execute();
+
+        // set the resulting array to associative
+        $response1 = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+        $response2 = $stmt->fetchAll();
+        
+        echo "\n"+"records obtained successfully";
+        //echo "\n"+$stmt;
+        //echo "\n"+$result->userId;
+        //echo "\n"+$result->firstName;
+        //echo "\n"+$result->lastName;
+        //echo "\n"+$result;
+       // echo "\n"+$result2;
+        print_r('response1:' + $response1);
+        print_r('response2:' + $response2);            
+        
+        if($response2->pwd == $_POST["logUPwd"])
+        {
+            print_r('user Login is valid');
+        }
+        else
+        {
+            print_r('user Login is not valid');
+        }
+    }
+    catch(PDOException $e)
     {
-        //$name = test_input($_POST["name"]);
+        echo "Connection failed: " . $e->getMessage();
+        /*echo ('<script language="javascript">');
+        echo ('alert(<?php $e->getMessage();  ?>)');  //not showing an alert box.
+        echo ('</script>');
+        */
     }
 }
 
