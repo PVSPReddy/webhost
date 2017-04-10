@@ -12,7 +12,7 @@ $shallAllow =false;
 $log_Err ="";
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
-    echo ('step 0');
+    //echo ('step 0');
     if (empty($_POST["logUName"])) 
     {
         $log_Err = "Name is required";
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         else
         {
             $shallAllow =true;
-            echo "step 1";
+            //echo "step 1";
         }
     }
 }
@@ -41,6 +41,7 @@ if($shallAllow == true)
         $connn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "SELECT * from webhostdb.userinfo WHERE uid=\$_POST[\"logUName\"]";
         
+        echo ($sql);
         //1
         /*
         $connn->exec($sql);
