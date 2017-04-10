@@ -12,7 +12,7 @@ $shallAllow =false;
 $log_Err ="";
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
-    echo "step 0";
+    echo ('step 0');
     if (empty($_POST["logUName"])) 
     {
         $log_Err = "Name is required";
