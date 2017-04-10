@@ -40,11 +40,11 @@ if($shallAllow == true)
         $connn = new PDO("mysql:host=$servername;dbname=$dbName", $username, $password);
         $connn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "SELECT * from webhostdb.userinfo WHERE uid=\$_POST[\"logUName\"]";
-        echo "step 2";
+        
         //1
         $connn->exec($sql);
         echo "Connected successfully";
-        
+        echo "step 2";
         //2
          // prepare sql and bind parameters
         $res_data = $connn->prepare($sql);
