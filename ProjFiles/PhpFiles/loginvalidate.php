@@ -53,12 +53,12 @@ if($shallAllow == true)
          // prepare sql and bind parameters
         $res_data = $connn->prepare($sql);
         echo "\n"+"4564746757767";
-        $res_data->execute();
+        $res_data->exec($sql);
         echo "step 3";
 
         // set the resulting array to associative
-        $response1 = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-        $response2 = $stmt->fetchAll();
+        $response1 = $res_data->setFetchMode(PDO::FETCH_ASSOC); 
+        $response2 = $res_data->fetchAll();
         echo "step 4";
         
         echo "\n"+"records obtained successfully";
