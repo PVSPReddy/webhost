@@ -15,15 +15,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     echo "step 0";
     if (empty($_POST["logUName"])) 
     {
-        $log_Err =""; = "Name is required";
-        echo($log_Err ="";);
+        $log_Err = "Name is required";
+        echo($log_Err;);
     } 
     else
     {
         if (empty($_POST["logUPwd"]))
         {
-            $log_Err =""; = "Password is required";
-            echo($log_Err ="";);
+            $log_Err = "Password is required";
+            echo($log_Err;);
         }
         else
         {
