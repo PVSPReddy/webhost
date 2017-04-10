@@ -52,6 +52,7 @@ if($shallAllow == true)
         //2
          // prepare sql and bind parameters
         $res_data = $connn->prepare($sql);
+        echo "\n"+"4564746757767";
         $res_data->execute();
         echo "step 3";
 
