@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         else
         {
             $shallAllow =true;
+            echo "step 1";
         }
     }
 }
@@ -38,7 +39,7 @@ if($shallAllow == true)
         $connn = new PDO("mysql:host=$servername;dbname=$dbName", $username, $password);
         $connn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "SELECT * from webhostdb.userinfo WHERE uid=\$_POST[\"logUName\"]";
-        
+        echo "step 2";
         //1
         $connn->exec($sql);
         echo "Connected successfully";
@@ -47,10 +48,12 @@ if($shallAllow == true)
          // prepare sql and bind parameters
         $res_data = $connn->prepare($sql);
         $res_data->execute();
+        echo "step 3";
 
         // set the resulting array to associative
         $response1 = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
         $response2 = $stmt->fetchAll();
+        echo "step 4";
         
         echo "\n"+"records obtained successfully";
         //echo "\n"+$stmt;
