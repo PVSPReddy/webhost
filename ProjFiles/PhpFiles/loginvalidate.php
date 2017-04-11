@@ -43,11 +43,9 @@ if($shallAllow == true)
         
         echo ($sql);
         //1
-        /*
         $connn->exec($sql);
         echo "Connected successfully";
         echo "step 2";
-        */
         
         //2
          // prepare sql and bind parameters
