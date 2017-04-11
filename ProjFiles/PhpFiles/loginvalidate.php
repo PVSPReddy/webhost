@@ -41,7 +41,7 @@ if($shallAllow == true)
         $connn = new PDO("mysql:host=$servername;dbname=$dbName", $username, $password);
         $connn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         //$sql = "SELECT * from webhostdb.userinfo WHERE uname=\"pvsivapr\" ";
-        $sql = "SELECT * from webhostdb.userinfo WHERE uname="+"\""+$_POST["logUName"]+"\"";
+        $sql = "SELECT * from webhostdb.userinfo WHERE uname="."\""+$_POST["logUName"]."\"";
         
         echo ($sql);
         
