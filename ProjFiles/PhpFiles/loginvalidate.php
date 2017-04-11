@@ -39,7 +39,7 @@ if($shallAllow == true)
     {
         $connn = new PDO("mysql:host=$servername;dbname=$dbName", $username, $password);
         $connn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * from webhostdb.userinfo WHERE uid=\$_POST[\"logUName\"]";
+        $sql = "SELECT * from webhostdb.userinfo WHERE uid="+$_POST["logUName"];
         
         echo ($sql);
         //1
