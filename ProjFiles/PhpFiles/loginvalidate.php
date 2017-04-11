@@ -37,6 +37,45 @@ if($shallAllow == true)
 {
     try
     {
+        
+        $connn = new PDO("mysql:host=$servername;dbname=$dbName", $username, $password);
+        $connn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        //$sql = "SELECT * from webhostdb.userinfo WHERE uname=\"pvsivapr\" ";
+        $sql = "SELECT * from webhostdb.userinfo WHERE uname="+"\""+$_POST["logUName"]+"\"";
+        
+        echo ($sql);
+        
+        // prepare sql and bind parameters
+        $res_data = $connn->prepare($sql);
+        $res_data->execute();
+
+        // set the resulting array to associative
+        $_response = $res_data->setFetchMode(PDO::FETCH_ASSOC); 
+        $response = $res_data->fetchAll();
+       
+        
+        echo "\n"."records obtained successfully";
+        echo $response[0]['uname'];
+        echo $response[0]['password'];
+        //echo "\n"+$stmt;
+        //echo "\n"+$result->userId;
+        //echo "\n"+$result->firstName;
+        //echo "\n"+$result->lastName;
+        //echo "\n"+$result;
+       // echo "\n"+$result2;
+                  
+        
+        if($response[0]['password'] === '12345678')
+        {
+            print_r('user Login is valid');
+        }
+        else
+        {
+            print_r('user Login is not valid');
+        }
+        
+        
+        /*
         $connn = new PDO("mysql:host=$servername;dbname=$dbName", $username, $password);
         $connn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "SELECT * from 'webhostdb.userinfo' WHERE uname="+"\""+$_POST["logUName"]+"\"";
@@ -53,7 +92,7 @@ if($shallAllow == true)
        
         
         echo "\n"+"records obtained successfully";
-        $response[0][uname]
+        echo $response[0][uname];
         echo $response[0][password];
         //echo "\n"+$stmt;
         //echo "\n"+$result->userId;
@@ -71,6 +110,7 @@ if($shallAllow == true)
         {
             print_r('user Login is not valid');
         }
+        */
     }
     catch(PDOException $e)
     {
