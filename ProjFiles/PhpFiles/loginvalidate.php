@@ -45,7 +45,7 @@ if($shallAllow == true)
         //$sql = "SELECT * from webhostdb.userinfo WHERE uname="."\""+$_POST["logUName"]."\"";
         $sql = "SELECT * from webhostdb.userinfo WHERE uname="."\"".$_POST["logUName"]."\"";
         
-        echo ($sql);
+        //echo ($sql);
         
         // prepare sql and bind parameters
         $res_data = $connn->prepare($sql);
@@ -56,9 +56,9 @@ if($shallAllow == true)
         $response = $res_data->fetchAll();
        
         
-        echo "\n"."records obtained successfully";
-        echo $response[0]['uname'];
-        echo $response[0]['password'];
+        //echo "\n"."records obtained successfully";
+        //echo $response[0]['uname'];
+        //echo $response[0]['password'];
         //echo "\n"+$stmt;
         //echo "\n"+$result->userId;
         //echo "\n"+$result->firstName;
@@ -67,7 +67,7 @@ if($shallAllow == true)
        // echo "\n"+$result2;
                   
         
-        if($response[0]['password'] === '12345678')
+        if($response[0]['password']  == $_POST["logUPwd"])
         {
             print_r('user Login is valid');
         }
@@ -76,43 +76,6 @@ if($shallAllow == true)
             print_r('user Login is not valid');
         }
         
-        
-        /*
-        $connn = new PDO("mysql:host=$servername;dbname=$dbName", $username, $password);
-        $connn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * from 'webhostdb.userinfo' WHERE uname="+"\""+$_POST["logUName"]+"\"";
-        
-        echo ($sql);
-        
-        // prepare sql and bind parameters
-        $res_data = $connn->prepare($sql);
-        $res_data->exec($sql);
-
-        // set the resulting array to associative
-        $response = $res_data->setFetchMode(PDO::FETCH_ASSOC); 
-        $_response = $res_data->fetchAll();
-       
-        
-        echo "\n"+"records obtained successfully";
-        echo $response[0][uname];
-        echo $response[0][password];
-        //echo "\n"+$stmt;
-        //echo "\n"+$result->userId;
-        //echo "\n"+$result->firstName;
-        //echo "\n"+$result->lastName;
-        //echo "\n"+$result;
-       // echo "\n"+$result2;
-                  
-        
-        if($response[0][password] == $_POST["logUPwd"])
-        {
-            print_r('user Login is valid');
-        }
-        else
-        {
-            print_r('user Login is not valid');
-        }
-        */
     }
     catch(PDOException $e)
     {
