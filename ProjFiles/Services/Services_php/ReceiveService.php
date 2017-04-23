@@ -32,40 +32,11 @@ $rawData = json_decode(file_get_contents('php://input'),true);
 
 if(strpos($requestContentType,'application/json') !== false)
 {
-    //echo ("in json format"."\n");
-    //$json = file_get_contents('php://input');
-    
     //here we are converting data from json object to an array
     $json = json_decode(file_get_contents('php://input'),true);
     $raw = $rh -> Request_Handler($userRequest, $json);
     $response = encodeJson($raw);
     echo $response."\n";
-    /*
-    $raw = array('error' => 'No mobiles found!',
-                 'method' => $method,
-                 'table_name' => $json['table'],
-                 'key_no' => $json['key'],
-                 'test_data' => $json['test'],
-                 'is_true' => $json['istrue']);
-    
-    
-    
-    //$response = encodeJson($json);
-    $response = encodeJson($raw);
-    
-    echo $response."\n";
-    //echo $json;
-    echo ("\n");
-    var_dump ($json);
-    //print_r($response."\n");
-    //var_dump($response."\n");
-    //print_r($_REQUEST);
-    //echo $response;
-    */
-    
-    
-    
-    
 }
 else if(strpos($requestContentType,'text/html') !== false)
 {
@@ -77,6 +48,10 @@ else if(strpos($requestContentType,'application/xml') !== false)
     $response = new SimpleXMLElement($response);
     print_r($_REQUEST."\n");
     //echo $response;
+}
+else
+{
+    
 }
 
 function encodeXml($responseData) {

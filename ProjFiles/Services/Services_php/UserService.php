@@ -9,35 +9,13 @@ class UserServices extends ServerStatus
     {
         $getConnService = new GetConnectionService();
         $conn = $getConnService -> getConnection();
-        /*
-        $servername = "mysql3.gear.host";
-        $username = "webhostdb";
-        $password = "siva_123456";
-        $dbName = "webhostdb";
-        $host = 3306;
-        
-        $conn = new PDO("mysql:host=$servername;dbname=$dbName", $username, $password);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        */
         return $conn;
     }
-    
-    //$response = array();
     
     function Register($data)
     {
         try
         {
-           /*
-            $servername = "mysql3.gear.host";
-            $username = "webhostdb";
-            $password = "siva_123456";
-            $dbName = "webhostdb";
-            $host = 3306;
-            
-            $conn = new PDO("mysql:host=$servername;dbname=$dbName", $username, $password);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            */
             $uName = $data['user_name'];
             $uPwd = $data['password'];
             $uFName = $data['user_first_name'];
@@ -45,43 +23,31 @@ class UserServices extends ServerStatus
             $uMobileNo = $data['user_mobile_no'];
             $uEmailId = $data['user_email'];
             
-            
             $conn = $this->Connection();
             $sql = "INSERT INTO webhostdb.userinfo (uname, password, first_name, last_name, mobile_no, email_id, profile_pic ) VALUES ( '$uName', '$uPwd', '$uFName', '$uLName', '$uMobileNo', '$uEmailId', 'no pic' )";
             
             $conn->exec($sql);
             
             $response = array("message"=>"User Registration is successful",
-                             "code"=>"0"
+                             "code"=>"1"
                              );
             return $response;
         }
         catch(PDOException $e)
         {
             $response = array("message"=>"User Registration is un-successful",
-                             "code"=>"1"
+                             "code"=>"0"
                              );
             return $response;
             //echo "Connection failed: " . $e->getMessage();
-        }
-        
+        }   
     }
     
     function Login($data)
     {
         try
         {
-            echo ($data);
-            exit;
-            
-            $servername = "mysql3.gear.host";
-            $username = "webhostdb";
-            $password = "siva_123456";
-            $dbName = "webhostdb";
-            $host = 3306;
-            
-            $conn = new PDO("mysql:host=$servername;dbname=$dbName", $username, $password);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $conn = $this->Connection();
             
             $sql = "SELECT * from webhostdb.userinfo WHERE uname="."\"".$_POST["logUName"]."\"";
             
@@ -96,16 +62,49 @@ class UserServices extends ServerStatus
             
             if($response[0]['password'] == $_POST["logUPwd"])
             {
-                print_r('user Login is valid');
+                $uName = $data['user_name'];
+                $uPwd = $data['password'];
+                $uFName = $data['user_first_name'];
+                $uLName = $data['user_last_name'];
+                $uMobileNo = $data['user_mobile_no'];
+                $uEmailId = $data['user_email'];
+                
+                $user_data = array(
+                    "user_name"=>$uname,
+                    "password"=>$uPwd,
+                    "user_first_name"=>$uFName
+                    "user_last_name"=>$uLName,
+                    "user_mobile_no"=>$uMobileNo,
+                    "user_email"=>$uEmailId
+                );
+                
+                
+                $response = array(
+                    "message"=>"User Registration is successful",
+                    "code"=>"1",
+                    "UserDetails"=>$user_data
+                );
+                return $response;
             }
             else
             {
-                print_r('user Login is not valid');
+                $user_data = array()null;
+                $response = array("message"=>"User Registration is un-successful, \n username/*password is incorrect",
+                             "code"=>"0",
+                            "UserDetails"=>$user_data
+                             );
+                return $response;
             }
         }
         catch(PDOException $e)
         {
-            echo "Connection failed: " . $e->getMessage();
+            $user_data = array()null;
+            $response = array("message"=>"User Registration is un-successful, \n *username/password is incorrect",
+                             "code"=>"0",
+                              "UserDetails"=>$user_data
+                             );
+            return $response;
+            //echo "Connection failed: " . $e->getMessage();
         }
     }
     
