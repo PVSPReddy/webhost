@@ -14,10 +14,10 @@ class RequestHandler// extends ServerStatus
                 return $response = $uServices -> Register($data);
                 break;
             case"UserLogin":
-                return $response = $uServices -> Register($data);
+                return $response = $uServices -> Login($data);
                 break;
             case "AllUsersData":
-                return $response = $uServices -> Register($data);
+                return $response = $uServices -> AllUsers($data);
                 break;
             default:
                 return $response = $uServices -> FaultMethod($data);

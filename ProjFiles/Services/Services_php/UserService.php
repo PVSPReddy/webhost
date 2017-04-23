@@ -47,12 +47,15 @@ class UserServices extends ServerStatus
     {
         try
         {
+            $uName = $data['user_name'];
+            $uPwd = $data['password'];
+            
             $conn = $this->Connection();
             
-            $sql = "SELECT * from webhostdb.userinfo WHERE uname="."\"".$_POST["logUName"]."\"";
-            
+            $sql = "SELECT * from webhostdb.userinfo WHERE uname="."\"".$uName."\"";
+            //echo $sql;
             // prepare sql and bind parameters
-            $res_data = $connn->prepare($sql);
+            $res_data = $conn->prepare($sql);
             $res_data->execute();
             
             // set the resulting array to associative
@@ -60,19 +63,20 @@ class UserServices extends ServerStatus
             $response = $res_data->fetchAll();
             
             
-            if($response[0]['password'] == $_POST["logUPwd"])
+            if($response[0]['password'] == $uPwd)
             {
-                $uName = $data['user_name'];
-                $uPwd = $data['password'];
-                $uFName = $data['user_first_name'];
-                $uLName = $data['user_last_name'];
-                $uMobileNo = $data['user_mobile_no'];
-                $uEmailId = $data['user_email'];
+                //mention the values of response as mentioned in database
+                $uName = $response[0]['uname'];
+                $uPwd = $response[0]['password'];
+                $uFName = $response[0]['first_name'];
+                $uLName = $response[0]['last_name'];
+                $uMobileNo = $response[0]['mobile_no'];
+                $uEmailId = $response[0]['email_id'];
                 
                 $user_data = array(
-                    "user_name"=>$uname,
+                    "user_name"=>$uName,
                     "password"=>$uPwd,
-                    "user_first_name"=>$uFName
+                    "user_first_name"=>$uFName,
                     "user_last_name"=>$uLName,
                     "user_mobile_no"=>$uMobileNo,
                     "user_email"=>$uEmailId
@@ -80,7 +84,7 @@ class UserServices extends ServerStatus
                 
                 
                 $response = array(
-                    "message"=>"User Registration is successful",
+                    "message"=>"Login is successful",
                     "code"=>"1",
                     "UserDetails"=>$user_data
                 );
@@ -88,8 +92,8 @@ class UserServices extends ServerStatus
             }
             else
             {
-                $user_data = array()null;
-                $response = array("message"=>"User Registration is un-successful, \n username/*password is incorrect",
+                $user_data = array();
+                $response = array("message"=>"username/*password is incorrect",
                              "code"=>"0",
                             "UserDetails"=>$user_data
                              );
@@ -98,8 +102,8 @@ class UserServices extends ServerStatus
         }
         catch(PDOException $e)
         {
-            $user_data = array()null;
-            $response = array("message"=>"User Registration is un-successful, \n *username/password is incorrect",
+            $user_data = array();
+            $response = array("message"=>"*username/password is incorrect",
                              "code"=>"0",
                               "UserDetails"=>$user_data
                              );
@@ -114,11 +118,6 @@ class UserServices extends ServerStatus
     }
     
     function FaultMethod($data)
-    {
-        
-    }
-    
-    function DataBaseService($sql)
     {
         
     }
